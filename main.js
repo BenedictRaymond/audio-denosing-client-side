@@ -14,10 +14,10 @@
             const response = await fetch(modelPath);
             const modelBytes = new Uint8Array(await response.arrayBuffer());
 
-            const attenLimDb = 5; // Attenuation limit in dB
+            const attenLimDb = 12; // Attenuation limit in dB
             dfState = dfModule.df_create(modelBytes, attenLimDb);
             frameSize = dfModule.df_get_frame_length(dfState);
-            dfModule.df_set_post_filter_beta(dfState, 0);
+            dfModule.df_set_post_filter_beta(dfState, 0.03);
             setResult(1, 'Model loaded successfully');
         }
         
@@ -122,12 +122,12 @@
                     // Run DF denoiser. Some builds return SNR; we ignore it here.
                     // If your API is df_process(state, in, out) or returns the output, adapt accordingly.
                     try {
-                        snr = dfModule.df_process_frame(dfState, inBuf, outBuf);
+                        outBuf = dfModule.df_process_frame(dfState, inBuf);
                     } catch (err) {
                         console.error("DF processing error:", err);
                         outBuf.fill(0);
                     }
-                    outBuf = snr.map(sample => -sample);
+                    // outBuf = snr.map(sample => -sample);
 
                     workletNode.port.postMessage({ type: "processed", output: outBuf }, [outBuf.buffer]);
 
