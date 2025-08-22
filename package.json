@@ -1,0 +1,20 @@
+{
+  "name": "deep_filter",
+  "collaborators": [
+    "Hendrik Schröter"
+  ],
+  "description": "Noise supression using deep filtering",
+  "version": "0.5.7-pre",
+  "license": "MIT/Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rikorose/DeepFilterNet"
+  },
+  "files": [
+    "df_bg.wasm",
+    "df.js",
+    "df.d.ts"
+  ],
+  "browser": "df.js",
+  "types": "df.d.ts"
+}

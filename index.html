@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Debug Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #1a1a1a;
+            color: white;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .test { margin: 20px 0; padding: 15px; background: #333; border-radius: 5px; }
+        .success { background: #2d5a2d; }
+        .error { background: #5a2d2d; }
+        pre { background: #111; padding: 10px; border-radius: 5px; overflow: auto; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Audio System Debug Test</h1>
+
+    <div class="test">
+        <h3>Step 1: Load Model</h3>
+        <button onclick="loadModel()">Load Model</button>
+        <div id="test1-result"></div>
+    </div>
+
+    <div class="test">
+        <h3>Direct Mic Audio (⚠️ USE HEADPHONES!)</h3>
+        <button onclick="testDirectAudio()">Start Direct Audio</button>
+        <button onclick="stopDirectAudio()">Stop</button>
+        <div id="test2-result"></div>
+    </div>
+
+    <div class="test">
+        <h3> Denoised Mic Audio (⚠️ USE HEADPHONES!)</h3>
+        <button onclick="testDenoising()">Start Denoise</button>
+        <button onclick="stopDenoising()">Stop</button>
+        <div id="test3-result"></div>
+    </div>
+
+
+    <h3>Debug Log:</h3>
+    <pre id="log"></pre>
+
+    <script src="df.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
