@@ -14,7 +14,7 @@
             const response = await fetch(modelPath);
             const modelBytes = new Uint8Array(await response.arrayBuffer());
 
-            const attenLimDb = 10; // Attenuation limit in dB
+            const attenLimDb = 5; // Attenuation limit in dB
             dfState = dfModule.df_create(modelBytes, attenLimDb);
             frameSize = dfModule.df_get_frame_length(dfState);
             dfModule.df_set_post_filter_beta(dfState, 0);
