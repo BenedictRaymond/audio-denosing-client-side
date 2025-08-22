@@ -43,7 +43,7 @@
                     channelCount: 1,
                     sampleRate: 48000,
                     echoCancellation: false,
-                    noiseSuppression: true,
+                    noiseSuppression: false,
                     autoGainControl: false
                 }
             });
