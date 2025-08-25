@@ -14,7 +14,7 @@
             const response = await fetch(modelPath);
             const modelBytes = new Uint8Array(await response.arrayBuffer());
 
-            const attenLimDb = 20; // Attenuation limit in dB
+            const attenLimDb = 50; // Attenuation limit in dB
             dfState = dfModule.df_create(modelBytes, attenLimDb);
             frameSize = dfModule.df_get_frame_length(dfState);
             dfModule.df_set_post_filter_beta(dfState, 1);
@@ -53,7 +53,7 @@
             sourceNode = audioContext.createMediaStreamSource(micStream);
             gainNode = audioContext.createGain();
             // Start with low volume to prevent feedback
-            gainNode.gain.value = 1.5;
+            gainNode.gain.value = 2;
                 
             sourceNode.connect(gainNode);
             gainNode.connect(audioContext.destination);
