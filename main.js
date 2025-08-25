@@ -14,10 +14,10 @@
             const response = await fetch(modelPath);
             const modelBytes = new Uint8Array(await response.arrayBuffer());
 
-            const attenLimDb = 50; // Attenuation limit in dB
+            const attenLimDb = -20; // Attenuation limit in dB
             dfState = dfModule.df_create(modelBytes, attenLimDb);
             frameSize = dfModule.df_get_frame_length(dfState);
-            dfModule.df_set_post_filter_beta(dfState, 1);
+            dfModule.df_set_post_filter_beta(dfState, 0.05);
             setResult(1, 'Model loaded successfully');
         }
         
