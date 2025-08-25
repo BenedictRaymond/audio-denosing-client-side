@@ -16,5 +16,8 @@
     "df.d.ts"
   ],
   "browser": "df.js",
-  "types": "df.d.ts"
+  "types": "df.d.ts",
+  "dependencies": {
+    "fft.js": "^4.0.4"
+  }
 }
