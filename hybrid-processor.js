@@ -250,7 +250,7 @@ class HybridNoiseSuppressionProcessor extends AudioWorkletProcessor {
         
         // Step 4: Spectral subtraction (skip if computationally expensive)
         // Comment out for now to test basic pipeline
-        processedFrame = this.spectralSubtraction(processedFrame);
+        //processedFrame = this.spectralSubtraction(processedFrame);
         
         // Step 5: Automatic Gain Control
         this.automaticGainControl(processedFrame);
